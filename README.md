@@ -61,26 +61,26 @@ GET http://localhost:3030/v2/multi-version-same-controller/only-version-2
 
 ### Scenario #2 - A new controller
 
-In this scenario we start with a controller: `version-one` with two routes: `/v1/foo` and `/v1/bar`. We tie this to the version on the controller level: `@Controller({ path: 'differnet-controllers', version: '1' })`.
+In this scenario we start with a controller: `version-one` with two routes: `/v1/foo` and `/v1/bar`. We tie this to the version on the controller level: `@Controller({ path: 'different-controllers', version: '1' })`.
 
-Then we encounter business requirements that makes us have to break compability. In this scenario we create a new controller `version-two` that also have foo & bar but with different version prefix in the path: `/v2/foo` and `/v2/bar` by using the controll level attribute: `@Controller({ path: 'differnet-controllers', version: '2' })`
+Then we encounter business requirements that makes us have to break compability. In this scenario we create a new controller `version-two` that also have foo & bar but with different version prefix in the path: `/v2/foo` and `/v2/bar` by using the controll level attribute: `@Controller({ path: 'different-controllers', version: '2' })`
 
 To show another example we also add `/baz` to the VersionTwoController and "back port" it to version 1 as well using `@Version(['2], [1])`.
 
 #### Version 1
 
 ```bash
-GET http://localhost:3030/v1/differnet-controllers/foo  # Returns a string
-GET http://localhost:3030/v1/differnet-controllers/bar  # Returns a string
-GET http://localhost:3030/v1/differnet-controllers/baz  # ONLY AVAILABLE AFTER WE IMPLEMENTED VersionTwoController  !!
+GET http://localhost:3030/v1/different-controllers/foo  # Returns a string
+GET http://localhost:3030/v1/different-controllers/bar  # Returns a string
+GET http://localhost:3030/v1/different-controllers/baz  # ONLY AVAILABLE AFTER WE IMPLEMENTED VersionTwoController  !!
 ```
 
 #### Version 2
 
 ```bash
-GET http://localhost:3030/v2/differnet-controllers/foo  # Returns an array strings
-GET http://localhost:3030/v2/differnet-controllers/bar  # Returns a number
-GET http://localhost:3030/v2/differnet-controllers/baz  # Same for both versions
+GET http://localhost:3030/v2/different-controllers/foo  # Returns an array strings
+GET http://localhost:3030/v2/different-controllers/bar  # Returns a number
+GET http://localhost:3030/v2/different-controllers/baz  # Same for both versions
 ```
 
 ### Scenario #3 - Version neutral

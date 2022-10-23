@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 
-@Controller({ path: 'differnet-controllers', version: '1' })
+@Controller({ path: 'different-controllers', version: '1' })
 export class VersionOneController {
   @Get('/foo')
   getFoo(): string {
