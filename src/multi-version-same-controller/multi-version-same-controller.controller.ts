@@ -10,8 +10,8 @@ export class MultiVersionSameControllerController {
 
   @Get('/stuff')
   @Version('2')
-  getStuffV2(): string {
-    return 'Version 2 stuff gotten';
+  getStuffV2(): [string] {
+    return ['Verjion 2 stuff gotten'];
   }
 
   // Same for both versions due to main.ts having
