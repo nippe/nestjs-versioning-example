@@ -3,13 +3,13 @@ import { Controller, Get, Version } from '@nestjs/common';
 @Controller({ path: 'differnet-controllers', version: '2' })
 export class VersionTwoController {
   @Get('/foo')
-  getFoo(): string {
-    return 'Foo in version two controller';
+  getFoo(): [string] {
+    return ['Foo in version two controller'];
   }
 
   @Get('/bar')
-  getBar(): string {
-    return 'Bar in version two controller';
+  getBar(): number {
+    return 1337;
   }
 
   @Get('/baz')
