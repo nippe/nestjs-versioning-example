@@ -15,9 +15,11 @@ async function bootstrap() {
   const specConfig = new DocumentBuilder()
     .setTitle('Versioning Sample App')
     .setDescription('A sample app showing off some HTTP versioning concepts')
+    .setVersion(require('../package.json').version)
+    // .setBasePath('/api')
     .build();
   const openApiDoc = SwaggerModule.createDocument(app, specConfig);
-  SwaggerModule.setup('api', app, openApiDoc);
+  SwaggerModule.setup('docs', app, openApiDoc);
   // swagger end
   await app.listen(3030);
 }
